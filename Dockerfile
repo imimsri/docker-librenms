@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.22
 
 ARG LIBRENMS_VERSION=b7a06045b01aa86e7eabef9e1018c3d34c190a2a
-ENV TZ=UTC
+ENV TZ=CET
 EXPOSE 80 443
 
 RUN	apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E5267A6C C300EE8C && \
@@ -67,4 +67,4 @@ RUN	chmod -R +x /etc/my_init.d /etc/service && \
 	find /opt/librenms \( ! -user librenms -o ! -group librenms \) -exec chown librenms:librenms {} \; && \
 	chmod 644 /etc/cron.d/librenms
 
-VOLUME ["/opt/librenms/logs", "/opt/librenms/rrd", "/etc/nginx/ssl", "/var/log/nginx"]
+#VOLUME ["/opt/librenms/logs", "/opt/librenms/rrd", "/etc/nginx/ssl", "/var/log/nginx"]
